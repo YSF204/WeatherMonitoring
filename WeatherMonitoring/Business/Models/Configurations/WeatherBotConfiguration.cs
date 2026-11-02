@@ -1,4 +1,4 @@
-
+using WeatherMonitoring.Business.Bots;
 
 namespace WeatherMonitoring.Business.Models.Configurations;
 
