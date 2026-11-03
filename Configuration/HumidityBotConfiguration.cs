@@ -1,4 +1,4 @@
-namespace WeatherMonitoring.Business.Models.Configurations;
+namespace WeatherMonitoring.Configuration;
 
 public class HumidityBotConfiguration
 {

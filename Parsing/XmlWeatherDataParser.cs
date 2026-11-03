@@ -1,7 +1,7 @@
 using System.Xml.Linq;
+using WeatherMonitoring.Models;
 
-namespace WeatherMonitoring.Business.Parsers;
-using WeatherMonitoring.Business.Models;
+namespace WeatherMonitoring.Parsing;
 
 public class XmlWeatherDataParser : IWeatherDataParser
 {

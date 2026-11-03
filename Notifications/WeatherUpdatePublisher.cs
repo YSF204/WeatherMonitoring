@@ -1,7 +1,7 @@
-using WeatherMonitoring.Business.Bots;
-using WeatherMonitoring.Business.Models;
+using WeatherMonitoring.Bots;
+using WeatherMonitoring.Models;
 
-namespace WeatherMonitoring.Business.Services;
+namespace WeatherMonitoring.Notifications;
 
 public class WeatherUpdatePublisher
 {

@@ -1,7 +1,7 @@
-using WeatherMonitoring.Business.Models;
-using WeatherMonitoring.Business.Models.Configurations;
+using WeatherMonitoring.Configuration;
+using WeatherMonitoring.Models;
 
-namespace WeatherMonitoring.Business.Bots;
+namespace WeatherMonitoring.Bots;
 
 public class SnowBot : WeatherBot
 {
@@ -11,7 +11,7 @@ public class SnowBot : WeatherBot
     {
         ArgumentNullException.ThrowIfNull(configurations);
         configurations.Validate();
-        
+
         _configuration = configurations;
     }
     public override string Name => "SnowBot";

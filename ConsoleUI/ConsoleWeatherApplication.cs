@@ -1,9 +1,9 @@
 using System.Text.Json;
 using System.Xml;
-using WeatherMonitoring.Business.Parsers;
-using WeatherMonitoring.Business.Services;
+using WeatherMonitoring.Notifications;
+using WeatherMonitoring.Parsing;
 
-namespace WeatherMonitoring.Presentation;
+namespace WeatherMonitoring.ConsoleUI;
 
 public class ConsoleWeatherApplication
 {

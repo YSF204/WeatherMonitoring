@@ -1,6 +1,6 @@
-using WeatherMonitoring.Business.Models;
+using WeatherMonitoring.Models;
 
-namespace WeatherMonitoring.Business.Bots;
+namespace WeatherMonitoring.Bots;
 
 /// <summary>Shared weather update workflow for configured bots.</summary>
 public abstract class WeatherBot : IWeatherBot

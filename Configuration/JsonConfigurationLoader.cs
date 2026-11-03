@@ -1,17 +1,14 @@
 using System.Text.Json;
-using WeatherMonitoring.Business.Models.Configurations;
-using WeatherMonitoring.DataAccess.Repositories;
 
-namespace WeatherMonitoring.Business.Services;
+namespace WeatherMonitoring.Configuration;
 
-public class ConfigurationService
+public class JsonConfigurationLoader
 {
-    private readonly IConfigurationsRepository _repository;
+    private readonly string _filePath;
 
-    public ConfigurationService(IConfigurationsRepository repository)
+    public JsonConfigurationLoader(string filePath)
     {
-        ArgumentNullException.ThrowIfNull(repository);
-        _repository = repository;
+        _filePath = filePath;
     }
 
     public WeatherBotConfiguration Load()
@@ -20,7 +17,13 @@ public class ConfigurationService
 
         try
         {
-            configurations = _repository.Load();
+            var json = File.ReadAllText(_filePath);
+
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true,
+            };
+            configurations = JsonSerializer.Deserialize<WeatherBotConfiguration>(json, options);
         }
         catch (IOException exception)
         {
@@ -30,7 +33,8 @@ public class ConfigurationService
         {
             throw new InvalidOperationException(
                 "Access to the configuration file was denied.", exception);
-        } catch (JsonException exception)
+        }
+        catch (JsonException exception)
         {
             throw new InvalidOperationException(
                 "The configuration file contains invalid JSON settings.", exception);

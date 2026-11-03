@@ -1,4 +1,4 @@
-namespace WeatherMonitoring.Business.Models;
+namespace WeatherMonitoring.Models;
 
 public class WeatherData
 {

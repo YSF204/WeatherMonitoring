@@ -1,6 +1,7 @@
-using WeatherMonitoring.Business.Models;
-using WeatherMonitoring.Business.Models.Configurations;
-namespace WeatherMonitoring.Business.Bots;
+using WeatherMonitoring.Configuration;
+using WeatherMonitoring.Models;
+
+namespace WeatherMonitoring.Bots;
 
 public class RainBot : WeatherBot
 {
@@ -12,7 +13,7 @@ public class RainBot : WeatherBot
         configurations.Validate();
         _configuration = configurations;
     }
-    
+
     public override string Name => "RainBot";
 
     protected override bool IsEnabledInConfiguration => _configuration.Enabled;

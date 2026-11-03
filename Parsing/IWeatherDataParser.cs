@@ -1,6 +1,6 @@
-using WeatherMonitoring.Business.Models;
+using WeatherMonitoring.Models;
 
-namespace WeatherMonitoring.Business.Parsers;
+namespace WeatherMonitoring.Parsing;
 
 /// <summary>Converts raw input into weather data.</summary>
 public interface IWeatherDataParser

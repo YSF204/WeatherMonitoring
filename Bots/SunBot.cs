@@ -1,7 +1,7 @@
-using WeatherMonitoring.Business.Models;
-using WeatherMonitoring.Business.Models.Configurations;
+using WeatherMonitoring.Configuration;
+using WeatherMonitoring.Models;
 
-namespace WeatherMonitoring.Business.Bots;
+namespace WeatherMonitoring.Bots;
 
 public class SunBot : WeatherBot
 {
@@ -10,10 +10,10 @@ public class SunBot : WeatherBot
     {
         ArgumentNullException.ThrowIfNull(configurations);
         configurations.Validate();
-        
+
         _configuration = configurations;
     }
-    
+
     public override string Name => "SunBot";
 
     protected override bool IsEnabledInConfiguration => _configuration.Enabled;

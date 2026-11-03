@@ -1,20 +1,18 @@
-using WeatherMonitoring.Business.Bots;
-using WeatherMonitoring.Business.Models.Configurations;
-using WeatherMonitoring.Business.Parsers;
-using WeatherMonitoring.Business.Services;
-using WeatherMonitoring.DataAccess.Repositories;
-using WeatherMonitoring.Presentation;
+using WeatherMonitoring.Bots;
+using WeatherMonitoring.Configuration;
+using WeatherMonitoring.ConsoleUI;
+using WeatherMonitoring.Notifications;
+using WeatherMonitoring.Parsing;
 
 var filePath = Path.Combine(AppContext.BaseDirectory,"bots.json");
 
-var repository = new JsonConfigurationRepository(filePath);
-var configurationService = new ConfigurationService(repository);
+var configurationLoader = new JsonConfigurationLoader(filePath);
 
 WeatherBotConfiguration configurations;
 
 try
 {
-    configurations = configurationService.Load();
+    configurations = configurationLoader.Load();
 }catch (InvalidOperationException exception)
 {
     Console.WriteLine($"Startup failed: {exception.Message}");
@@ -30,7 +28,7 @@ catch (Exception exception)
     Console.Error.WriteLine("An unexpected error occurred.");
     Console.Error.WriteLine(exception);
     return;
-} 
+}
 
 var weatherPublisher = new WeatherUpdatePublisher();
 weatherPublisher.Subscribe(new RainBot(configurations.RainBot));

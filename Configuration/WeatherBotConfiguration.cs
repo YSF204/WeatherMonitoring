@@ -1,6 +1,4 @@
-using WeatherMonitoring.Business.Bots;
-
-namespace WeatherMonitoring.Business.Models.Configurations;
+namespace WeatherMonitoring.Configuration;
 
 public class WeatherBotConfiguration
 {
@@ -13,6 +11,6 @@ public class WeatherBotConfiguration
         if(RainBot is null || SunBot is null || SnowBot is null)  throw new FormatException("Configurations must include all bots (Rain,Sun and Snow) bots");
         RainBot.Validate();
         SnowBot.Validate();
-        SunBot.Validate();     
+        SunBot.Validate();
     }
 }
